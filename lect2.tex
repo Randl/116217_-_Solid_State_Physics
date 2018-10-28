@@ -1,0 +1,51 @@
+The linear factor appears only in conductors, thus should come from electrons.
+\paragraph{Equipartition theorem}
+$$
+\expval{x_{m} \frac{\partial H}{\partial x_{n}}}  = \delta_{mn} k_{B} T
+$$
+in particular, for quadratic degree of freedom we get $\frac{1}{2}k_BT$.
+
+Thus, assuming each atom is harmonic oscillator, we have
+$$\expval{E} = 3k_BT$$
+and
+$$c_V = 3k_B$$
+\paragraph{Einstein model}
+Now assume the oscillators are quantum:
+$$E_n=\hbar \omega\qty(n+\frac{1}{2})$$
+The partition function
+$$Z = \sum_n e^{-\beta E_n} = \sum_n e^{-\beta \hbar \omega \qty(n+\frac{1}{2})} = e^{-\frac{\beta \hbar \omega}{2}}\frac{1}{1-e^{-\beta \hbar \omega}} = \frac{e^{-\frac{\beta \hbar \omega}{2}}}{e^{-\frac{\beta \hbar \omega}{2}} \qty[e^{\frac{\beta \hbar \omega}{2}}-e^{-\frac{\beta \hbar \omega}{2}}]} = \frac{1}{2\sinh(\frac{\beta \hbar \omega}{2})}$$
+$$\expval{E}  = -\pdv{\beta} \ln Z_N = -\frac{1}{Z_N} \pdv{\beta} Z = N \cdot 2\sinh(\frac{\beta \hbar \omega}{2}) \cdot \frac{\hbar \omega}{2}\frac{\cosh(\frac{\beta \hbar \omega}{2})}{\sinh[2](\frac{\beta \hbar \omega}{2})} = \frac{N\hbar \omega}{2} \frac{1}{\tanh(\frac{\beta \hbar \omega}{2})}$$
+$$\expval{E}  = N\hbar\omega \qty(n_B(\beta \hbar \omega)+\frac{1}{2})$$
+$$n_B(x) = \frac{1}{r^x-1}$$
+
+Now
+$$c_V = \pdv{\expval{E}}{T} = 3N k_B (\beta \hbar  \omega)^2 \frac{e^{\beta \hbar \omega}}{\qty(e^{\beta \hbar \omega}-1)^2}$$
+$$\lim_{T\to \infty } c_V = 3k_BN$$
+$$\lim_{T\to 0 } c_V = 0$$
+which is expected, however, we got exponential dependence on $T$ and not $T^3$.
+\subsection{Debye model}
+Debye proposed to model atoms in solid as sound waves. Plank already quantized EM-waves, the only differences is number of polarization options and speed of wave.
+
+
+We'll often use periodic bound conditions, since this preserves the symmetry of the system.
+
+Now, for wave $e^{ikx}$ we get $e^{ikx}=e^{ik(x+L)}$, thus we get a condition on wavenumber
+$$k=\frac{2\pi}{L}n$$
+
+We also want to switch to integral on $k$.
+
+The connection between frequency and wavenumber is $\omega(\va{k}) = v\cdot \abs{\va{k}}$. The energy per wavenumber
+$$\expval{E} = 3\sum_{\va{k}} \hbar \omega(\va{k}) \qty(n_B(\beta\hbar\omega(\va{k}))+\frac{1}{2}) $$
+$$\expval{E} = 3\frac{L^3}{(2\pi)^3} \int \dd[3]{k} \hbar \omega(\va{k}) \qty(n_B(\beta\hbar\omega(\va{k}))+\frac{1}{2}) =3 \frac{4\pi L^3}{(2\pi)^3} \int \frac{\omega^2 \dd{\omega}}{v^3} \hbar \omega  \qty(n_B(\beta\hbar\omega)+\frac{1}{2})$$
+
+Now,
+$$g(\omega) = L^3 \cdot \frac{12\pi \omega^2}{(2\pi)^3 v^3} = N \frac{12\pi \omega^2}{(2\pi)^3 v^3\rho}$$
+is density of states.
+
+Define $\omega_d^3 = 6\pi^2 \rho v^3$, acquiring $g(\omega) = N\frac{9\omega^2}{\omega_d^3} $
+$$\expval{E} = \frac{9N\hbar }{\omega_d^3} \int \omega^3 \dd{\omega} \frac{1}{e^{\beta \hbar\omega }-1} + \text{const}$$
+
+Substituting $\beta \hbar \omega = x$:
+$$\expval{E} = \frac{9N\hbar }{\omega_d^3 (\beta \hbar)^4} \underbrace{\int \dd{x} x^3 \frac{1}{e^x-1}}_{\frac{\pi^4}{15}} $$
+
+$$\pdv{\expval{E}}{T} = \frac{12\pi^4}{5}\frac{nk_B \qty(k_BT)^3}{(\hbar \omega_d)^3} $$
