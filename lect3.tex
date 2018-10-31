@@ -1,0 +1,48 @@
+The reason we get divergence in high temperatures is that we assume any frequency is possible, however, the wavelength can't be less than distance between atoms.
+
+The total number of possible frequencies equals to number of degrees of freedom:
+$$\int_0^{\omega_{cutoff}} \dd{\omega} g(\omega) = 3N$$
+$$\int_0^{\omega_{cutoff}} \dd{\omega}N \frac{9\omega^2}{\omega_d^3} = N\cdot \frac{3\omega^3}{\omega_d^3}=3N$$
+i.e., $\omega_{cutoff} = \omega_d$:
+$$\expval{E} = \int_0^{\omega_d} \frac{\dd{\omega} g(\omega) \omega^3}{e^{\beta \hbar \omega}-1}$$
+
+In low temperatures our calculation is yet good, in high temperatures, using Taylor expansion of $e^{\beta \hbar \omega}$
+$$\expval{E} = \int_0^{\omega_d} \frac{\dd{\omega} g(\omega) \omega^3}{\beta \hbar \omega} = \int_0^{\omega_d} ]\dd{\omega} g(\omega) k_B T = 3Nk_B T$$
+
+We define some different qunatities based on Debye frequency
+$T_d = \frac{\hbar \omega_d}{k_B}$
+$k_d = \frac{ \omega_d}{v}$
+
+\subsection{Phonons}
+Suppose we have a one-dimensional chain of atoms of mass $m$ in position
+$$x_n^{eq} = na$$
+with  oscillations
+$$u =x_n - x_n^{eq}$$
+If $u$ is small it can be approximated with quadratic potential, i.e., a chain of springs.
+
+$$V_{tot} = \sum_j V(x_{j+1}-x_j) = \sum_j \frac{K}{2} \qty(x_{j+1} -x_j -a)^2 = \sum_j \frac{K}{2} (u_{j+1}-u_j)^2 $$
+$$F_n = -\pdv{V_{tot}}{u_n} = K(u_{n+1}-u_n) + K(u_{n-1}-u_n)$$
+
+We get system of equations
+$$m\ddot{u}_n = F_n = K(u_{n+1} + u_{n-1} - 2u_n)$$
+Or, in matrix form
+$$m\begin{pmatrix}
+\ddot{u}_1\\\ddot{u}_2\\\vdots \\\ddot{u}_n
+\end{pmatrix} = K\begin{pmatrix}
+-2&1&0&\dots&0\\
+1&-2&1&\dots& 0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+0&0&0&\dots &-2
+\end{pmatrix}\begin{pmatrix}
+u_1\\u_2\\\vdots \\u_n
+\end{pmatrix} $$
+
+Guessing a solution
+$$u_n = A e^{i\omega t} e^{-ikan}$$
+We get
+$$-m\omega^2u_n = K A  e^{i\omega t}\qty( e^{-ika(n+1)}+e^{-ika(n-1)} - 2e^{-ikan} ) = Ku_n(e^{-ika} + e^{ika} -2)$$
+$$-m\omega^2 = 2K\qty(\cos(ak)-1)$$
+i.e.,
+$$m\omega^2 = 4K \sin[2](\frac{ka}{2})$$
+or,
+$$\omega = 2\sqrt{\frac{K}{m}} \abs{\sin(\frac{ka}{2})}$$

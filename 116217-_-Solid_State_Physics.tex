@@ -17,6 +17,8 @@
 \usepackage{dsfont} %mathbb 1
 \usepackage{esint} % beatiful integrals
 \usepackage[arrowdel]{physics}
+\usepackage{amsthm} % theorems
+
 
 \usepackage[T1]{fontenc}
 % Nicer default font (+ math font) than Computer Modern for most use cases
@@ -61,6 +63,11 @@
 % Ashcroft and Merim
 % Kittel
 
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{coll}{Collary}[section]
+\newtheorem{lemma}{Lemma}[section]
+
 \parindent=0em
 \begin{document}
 
@@ -74,4 +81,5 @@
 %\tableofcontents
 \input{lect1.tex}
 \input{lect2.tex}
+\input{lect3.tex}
 \end{document}
