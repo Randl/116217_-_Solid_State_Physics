@@ -1,0 +1,41 @@
+The dispersion has minimum and maximum. We can interval of allowed frequencies ''band`` and its size is called ''bandwidth``. 
+The dispersion is periodic with period of $\frac{2\pi}{a}$, since the system is symmetric to translations of $a$.
+
+\paragraph{Solutions of the equations}
+Since translation operator commutes with Hamiltonian, the eigenfunctions of Hamiltonian got to be eigenfunctions of the translation operator, which are
+$$u_N = A e^{i\omega t - ikna}$$
+\subsection{Reciprocal lattice}
+\paragraph{Reciprocal space}
+Space of wavenumbers. We found equivalent points in inverse space. We call all the points equivalent to $k=0$ reciprocal lattice, i.e., $k=\frac{2\pi}{a} p$ for $p \in \mathbb{Z}$.
+\paragraph{First Brillouin zone}
+is a unit cell centered in $k=0$.
+\paragraph{Finite system}
+If the system is finite with size $L$,
+$$e^{ik na} = e^{ik \qty(n+\frac{L}{a})a}$$
+Thus
+$$k=\frac{2\pi}{L} \cdot p$$
+
+i.e., the number of modes
+$$N_{modes} = \frac{\frac{2\pi}{a}}{\frac{2\pi}{L}} = \frac{L}{a} = N_{atoms}$$
+
+\paragraph{Properties of dispersion}
+\subparagraph{Sound waves}
+$$\omega(k) \approx \sqrt{\frac{K}{m}} \abs{k}a = v\abs{k}$$
+\subparagraph{Short wavelengths}
+$$k \approx \frac{\pi}{a}$$
+\subparagraph{Velocity}
+$$v_{group} = \dv{\omega}{k}$$
+$$v_{phase} = \frac{\omega}{k}$$
+
+\subsection{Quantized phonons }
+We quantize our oscillator , with energy
+$$E_N =\hbar \omega \qty(n+\frac{1}{2})$$
+\paragraph{Crystal momentum}
+We define crystal momentum, momentum modulo $\hbar\frac{2\pi}{a}$. Since the lattice can give or take momentum in portions $\hbar\frac{2\pi}{a}$.
+\subsection{Two-atom chain of atoms}
+Suppose we have two types of atoms, $x$ and $y$, with locations
+$$x_n  = na+\frac{a}{10}$$
+$$y_n  = na+\frac{8a}{10}$$
+Suppose $m_1=m_2$ but $k_1\neq k_2$, ($_2$ connects $x_n$ with $y_n$ and $k_2$ connects $y_n$ with $x_{n+1}$).
+$$\delta \ddot{x}_n = k_2(\delta y_n - \delta x_n) + k_1(\delta y_{n-1} - \delta x_n)$$
+$$\delta \ddot{x}_n =k_1(\delta x_{n+1} - \delta y_{n}) + k_2(\delta x_n - \delta y_n ) $$
