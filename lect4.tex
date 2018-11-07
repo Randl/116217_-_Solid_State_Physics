@@ -37,5 +37,36 @@ Suppose we have two types of atoms, $x$ and $y$, with locations
 $$x_n  = na+\frac{a}{10}$$
 $$y_n  = na+\frac{8a}{10}$$
 Suppose $m_1=m_2$ but $k_1\neq k_2$, ($_2$ connects $x_n$ with $y_n$ and $k_2$ connects $y_n$ with $x_{n+1}$).
-$$\delta \ddot{x}_n = k_2(\delta y_n - \delta x_n) + k_1(\delta y_{n-1} - \delta x_n)$$
-$$\delta \ddot{x}_n =k_1(\delta x_{n+1} - \delta y_{n}) + k_2(\delta x_n - \delta y_n ) $$
+$$m\delta \ddot{x}_n = k_2(\delta y_n - \delta x_n) + k_1(\delta y_{n-1} - \delta x_n)$$
+$$m\delta \ddot{y}_n =k_1(\delta x_{n+1} - \delta y_{n}) + k_2(\delta x_n - \delta y_n ) $$
+
+Substitute $\delta x_n =A_x e^{i\omega t - ikna}$ and $\delta y_n =A_y e^{i\omega t - ikna}$:
+$$\begin{cases}
+-\omega^2 A_x m  e^{i\omega t - ikna} = k_2\qty(A_y e^{i\omega t - ikna} - A_x e^{i\omega t - ikna}) + k_1\qty(A_y e^{i\omega t - ik(n-1)a} - A_x e^{i\omega t - ikna})\\-\omega^2 A_y m  e^{i\omega t - ikna}  =k_1\qty(A_x e^{i\omega t - ik(n+1)a} - A_y e^{i\omega t - ikna}) + k_2\qty(A_x e^{i\omega t - ikna} - A_y e^{i\omega t - ikna})
+\end{cases} $$
+
+$$\begin{cases}
+-\omega^2  mA_x = (e^{ika} k_1 + k_2)A_y  - (k_1+k_2)A_x \\
+-\omega^2  m A_y   =\qty(k_1 e^{ - ika} +k_2) A_x -  (k_1+k_2)A_y
+\end{cases} $$
+
+In matrix form
+$$m\omega^2 \begin{pmatrix}A_x\\A_y\end{pmatrix} = \begin{pmatrix}
+- (k_1+k_2)&e^{ika} k_1 + k_2\\
+k_1 e^{ - ika} +k_2 & -  (k_1+k_2)
+\end{pmatrix} \begin{pmatrix}A_x\\A_y\end{pmatrix} $$
+$$\begin{pmatrix}
+m\omega^2 - (k_1+k_2)&-\qty(e^{ika} k_1 + k_2)\\
+-\qty(k_1 e^{ - ika} +k_2 )& m\omega^2 -  (k_1+k_2)
+\end{pmatrix} \begin{pmatrix}A_x\\A_y\end{pmatrix} $$
+
+$$\qty[m\omega^2 - (k_1+k_2)]^2 + \abs{k_1 e^{ - ika} +k_2}^2 = 0$$
+$$m\omega^2 = k_1+k_2 \pm \abs{k_1e^{ika} + k_2}$$
+$$\omega = \sqrt{\frac{k_1+k_2}{m} \pm \frac{1}{m}\sqrt{k_1^2 + k_2^2+2k_1k_2\cos(ka)}} = \sqrt{\frac{k_1+k_2}{m} \pm \frac{1}{m}\sqrt{(k_1 + k_2)^2-4k_1k_2\sin[2](\frac{ka}{2})}}$$
+
+Take a look at eigenvectors in $k=0$:
+they are $\begin{pmatrix}
+1\\1
+\end{pmatrix}$ for eigenvalue $0$ and $\begin{pmatrix}
+1\\-1
+\end{pmatrix}$ for eigenvalue $2(k_1+k_2)$. 
