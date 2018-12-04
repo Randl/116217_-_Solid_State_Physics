@@ -1,0 +1,50 @@
+We are interested in integral
+$$I = \int_{-\infty}^{\infty} \dd{\epsilon} H(\epsilon) n_F(\epsilon) $$
+
+Define
+$$K(\epsilon) = \int_{-\infty}^{\epsilon} \dd{\epsilon'} H(\epsilon') $$
+
+Integrating by parts:
+$$I = \underbrace{\eval{K(\epsilon ) n_F(\epsilon)}_{-\infty}^{\infty}}_{0} +\int_{-\infty}^\infty K(\epsilon) \qty(-\pdv{n_F}{\epsilon}) $$
+
+Now
+$$-\pdv{n_F}{\epsilon} = \frac{\beta e^{\beta\qty(\epsilon-\mu)}}{\qty( e^{\beta\qty(\epsilon-\mu)}+1)^2} = \frac{\beta}{4\cosh(\frac{\beta(\epsilon-\mu)}{2})}$$
+Note that
+$$\int_{-\infty}^\infty \dd{\epsilon} \qty(-\pdv{n_F}{\epsilon}) =1$$
+
+Now we want to take Taylor series of $K$:
+
+$$K(\epsilon) = K(\mu) + \sum_n \frac{(\epsilon-\mu)^n}{n!} \dv[n]{k}{\epsilon} \qty(\mu)$$
+
+i.e.,
+$$I = K(\mu)\int_{-\infty}^\infty \dd{\epsilon} \qty(\pdv{n_F}{\epsilon}) + \sum_n \int_{-\infty}^\infty \dd{\epsilon}  \frac{(\epsilon-\mu)^{2n}}{(2n)!} \qty[-\pdv{n_F}{\epsilon}] \dv[2n]{K}{\epsilon} \qty(\mu)$$
+
+Define $x=\beta(\epsilon-\mu)$:
+$$\int_{-\infty}^\infty \dd{\epsilon}  \frac{(\epsilon-\mu)^{2n}}{(2n)!} \qty[-\pdv{n_F}{\epsilon}] \dv[2n]{K}{\epsilon} \qty(\mu) = (k_BT)^{2n}\int_{-\infty}^\infty \dd{x} r_n(x) \dv[2n]{K}{\epsilon} \qty(\mu)$$
+
+Define
+$$a_n = \int_{-\infty}^\infty \dd{x} r_n(x) = \int_{-\infty}^\infty \dd{x} \frac{x^{2n}}{(2n)!} \qty(-\dv{x} \frac{1}{e^x+1})$$
+We can get
+$$a_n = \qty(2-\frac{1}{2^{2(n+1)}}) \zeta(2n)$$
+
+
+Thus
+$$I = \int_{-\infty}^\mu H(\epsilon) \dd{\epsilon} + \frac{\pi^2}{6} (kT)^2 H'(\mu) + \frac{7\pi^4}{360} (k_BT)^4 H^{(3)} (\mu) + \order{(k_BT)^6} $$
+
+\paragraph{Chemical potential in low temperatures}
+$$n = \int_{-\infty}^\infty g(\epsilon) n_F(\beta(\epsilon-\mu))$$
+$$n = \underbrace{\int_{-\infty}^\mu g(\epsilon) \dd{\epsilon}}_{n} + \frac{\pi^2}{6} (kT)^2 g'(\mu)$$
+Doing Taylors again:
+$$\int_{-\infty}^\mu g(\epsilon) \dd{\epsilon} = \int_{-\infty}^{\epsilon_F} g(\epsilon) \dd{\epsilon} + (\mu-\epsilon_F) g(\epsilon_F)$$
+$$g'(\mu) = g'(\epsilon_F) + (\mu-\epsilon_F) g''(\epsilon_F)$$
+
+Thus
+$$n = n + (\mu-\epsilon_F) g(\epsilon_F) + \frac{\pi^2}{6} (kT)^2 g'(\epsilon_F)$$
+and
+$$\mu = \epsilon_F - \frac{\pi^2}{6} (kT)^2 \frac{g'(\epsilon_F)}{g(\epsilon_F)} $$
+
+\paragraph{Energy}
+\begin{align*}
+\expval{E} = \int_{-\infty}^\mu \dd{\epsilon} g(\epsilon) \epsilon + \frac{\pi^2}{6} (k_BT)^2 \qty(g(\mu) + g'(\mu) \mu ) =\\= \int_{-\infty}^{\epsilon_F} \dd{\epsilon} g(\epsilon) \epsilon + (\mu-\epsilon_F) g(\epsilon_F) \epsilon_F + \frac{\pi^2}{6} (k_BT)^2 \frac{g'(\epsilon_F)}{g(\epsilon_F)} g(\epsilon_F)\epsilon_F + \frac{\pi^2}{6} (k_BT)^2 \qty(g(\epsilon_F) + g'(\epsilon_F)\epsilon_F)
+\end{align*}
+$$ \expval{E} = \expval{E}(T=0) + \frac{\pi^2}{6} (k_BT)^2 g(\epsilon_F)  $$

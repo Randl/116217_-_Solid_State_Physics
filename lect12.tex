@@ -1,0 +1,21 @@
+\paragraph{van der Waals force}
+Two neutral atoms can become dipole with quantum fluctuations and then create force between them.
+
+\paragraph{Chain of atoms}
+Suppose we have a chain of atoms with one orbital per atom and denote $\ket{n}$ the $n^{th}$ atom orbital. We assume $\braket{n}{m} = \delta_{nm}$.
+
+We are doing the same thing, i.e., writing 
+$$H=K+\sum_j V_j$$
+
+Assuming $\psi = \sum \alpha_n \ket{n}$ we can rewrite 
+$$\sum_{m} H_{nm} \phi_m = E\phi_n$$
+$$(K+V_m)\ket{m} = \epsilon_0 \ket{m}$$
+
+Then
+$$H_{mn} = \mel{m}{H}{n} = \epsilon_0 \delta_{mn} + \sum_{j\neq m} \mel{m}{V_j}{n}$$
+$$\sum_{j\neq m} \mel{m}{V_j}{n} = \begin{cases}
+V_0 & m=n\\
+-t & m=n+1\\
+-t^* & m=n-1\\
+0 & \abs{m-n}>1
+\end{cases}$$

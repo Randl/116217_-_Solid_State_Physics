@@ -1,0 +1,53 @@
+If we take $k_1\to k_2$,the gap starts to close. Since at $k_1=k_2$ the actual Brillouin zone is twice as big and the dispersion relation is $\sine[2]$, ta gap closes exactly at $k_1=k_2$.
+
+\section{Drude model}
+Model of conductance. Has three assumptions:
+\begin{enumerate}
+	\item Characteristic time of collision is $\tau$, i.e., probability of collision in time $\dd{t}$ is $\frac{\dd{t}}{\tau}$.
+	\item After the collision average momentum is zero: $\expval{\va{p}} = 0$.
+	\item Between collisions electron moves as usual.
+\end{enumerate}
+
+Lets write the equation
+$$\expval{\va{p}(t+\dd{t}) } = 0\frac{\dd{t}}{\tau} + \qty(\expval{\va{p}(t)} + \va{F}\dd{t})\qty(1-\frac{\dd{t}}{\tau})$$
+$$\dv{\expval{\va{p}(t)}}{t} = -\frac{\expval{\va{p}(t)}}{\tau} +\va{F}$$
+
+If $\va{F} = 0$ we get exponential.
+
+We want to study Lorenz force
+$$\va{F}= -e\va{E} - e\qty(\va{v} \cross \va{B})$$
+
+If we have only electric field ($\va{B}=0$)
+
+$$\dv{\expval{\va{p}(t)}}{t} = -\frac{\expval{\va{p}(t)}}{\tau} - e\va{E}$$
+
+We are interested in steady state, i.e., $\dv{\expval{\va{p}(t)}}{t} = 0$:
+$$\frac{m\expval{\va{v}(t)}}{\tau} = - e\va{E}$$
+
+Now we want to find current density:
+ $$\va{j} = -en\va{v} = \frac{e^2 \tau n}{m} \va{v}$$
+ 
+ We got Ohm law,
+ $$\va{j} = \sigma \va{E}$$
+ where $\sigma$ is conductivity
+ $$\sigma = \frac{e^2n\tau}{m}$$
+ 
+ \subsection{Hall effect}
+ $$\dv{\va{p}}{t} = -e\qty(\va{E} + \va{v} \cross \va{B}) -\frac{\va{p}}{\tau}$$
+ $$\dv{\va{p}}{t} = -e\va{E} +\frac{ \va{j} \cross \va{B} }{n}+\frac{m}{ne\tau} \va{j}$$
+ 
+ We can write down $\va{E} = \rho \va{j}$ for some matrix $\rho$. Assume $\va{B} = B\vu{z}$.
+ 
+ Then we get sum of antisymmetric matrix from cross product and scalar. $\rho$ is called resistivity tensor. We also define conductivity tensor $\sigma = \rho^{-1}$.
+ 
+ Now suppose we measure current as function of $E_x$L
+ $$\begin{cases}
+ j_x = \sigma_{xx} E_x + \sigma_{xy} E_y\\
+ j_y = \sigma_{yx} E_x + \sigma_{yy} E_y
+ \end{cases}$$
+ 
+ Since $j_y=0$,
+ $$\sigma_{yx} E_x + \sigma_{yy} E_y = 0$$
+ $$E_y = -\frac{\sigma_{yx}}{\sigma_{yy}} E_x = -\omega_c \tau E_x$$
+ where $\omega_c = \frac{eB}{m}$ and thus
+ $$j_x = \sigma_{xx} E_x + \sigma_{xy} E_y = \frac{\sigma_0}{1+(\omega_c \tau)^2} \qty(E_x - \omega_c \tau E_y) = \sigma_0 E_x$$

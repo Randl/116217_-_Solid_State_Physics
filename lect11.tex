@@ -1,0 +1,32 @@
+Also we assume that
+$$\braket{m}{n} = \delta_{mn}$$
+To find minimum of energy, we need to diagonalize Hamiltonian.  For that we find matrix representation in $\ket{1}$, $\ket{2}$ basis:
+$$H_{11} = \mel{1}{H}{1}  = \mel{1}{H_1}{1} + \mel{1}{V_2}{1} = \epsilon_0 + V_{cross}$$
+$$H_{21}^* = H_{12} = \mel{1}{H_1}{2} + \mel{1}{V_2}{1} = \epsilon_0 \braket{1}{2}  - t$$
+$$H_{22} = \mel{2}{H}{2} = \mel{2}{H_2}{2} + \mel{2}{V_1}{2} = \epsilon_0 + V_{cross}$$
+(assuming atoms are identical).
+
+Thus
+$$H  =\begin{pmatrix}
+\epsilon_0 + V_{cross}  & -t\\
+-t^* & \epsilon_0 + V_{cross}
+\end{pmatrix}$$
+
+$H$ is of form $H=aI + \va{b} \vdot \va{\sigma}$, i.e., $\epsilon_0\pm = \epsilon_0 + V_{cross} \pm \abs{t}$.
+
+If $t>0$, eigenvectors are $\begin{pmatrix}1\\1\end{pmatrix}$ and $\begin{pmatrix}1\\-1\end{pmatrix}$
+
+If we take in account between nuclei, given that distance between atoms is big, $V_{nn} \approx - V_{cross}$ i.e., $\epsilon_\pm \approx \epsilon_0 \pm \abs{t}$.
+
+If those states are not orthogonal, we can choose some orthonormal basis. Then
+$$H\ket{\Psi} = E\ket{\Psi}$$ 
+$$\sum_{\beta} \mel{\alpha}{H}{\beta} \braket{\beta}{n}a_n = E \sum_n \braket{\alpha}{n}a_n$$
+
+Define $R_{\beta n} = \braket{\beta}{n}$:
+$$H_{\alpha \beta} R_{\beta n}a_n = ER_{\alpha n } a_n$$
+$$R^\dagger_{m \alpha} H_{\alpha \beta} R_{\beta n}a_n = ER^\dagger_{m \alpha}R_{\alpha n } a_n$$
+Then
+$$\mel{m}{H}{n} a_n = ES_{mn} a_n$$
+where $S_{mn} = R^\dagger_{m \alpha}R_{\alpha n } = \braket{m}{n}$.
+Which is eigenvalue problem:
+$$\abs{H-ES} = 0$$

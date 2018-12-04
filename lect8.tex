@@ -1,0 +1,83 @@
+\section{Sommerfeld theory}
+We'll try to model electricity with quantum physics. Since electrons are fermions, we'll use Fermi-Dirac statistics.
+
+We want to work in grand canonical ensemble. For that we replace Hamiltonian with $H-\nu \hat{N}$.
+
+The partition function of grand canonical ensemble is
+$$Z = \sum_{\alpha} e^{-\beta \qty(E_\alpha - \mu N_\alpha)}$$
+The probability of finding particle in some state
+$$P = \frac{e^{-\beta(E_h-\mu)}}{1+e^{-\beta(E_h-\mu)}}$$
+
+Number of particles in particular energy:
+$$n_F(\beta(E-\mu)) = \frac{1}{1+e^{\beta(E-\mu)}}$$
+
+
+\paragraph{Fermi energy}
+Suppose we have free particles in a box $L\times L \times L$ with periodic boundary conditions.
+
+
+$$H= \frac{p^2}{2m}$$
+
+The eigenfunctions are 
+$$\psi_k = \frac{1}{\sqrt{v}}e^{i\va{k} \vdot \va{r}}$$
+
+The energy of this state
+$$\epsilon_k  = \frac{\hbar^2 \va{k}^2}{2m}$$
+
+Total number of particles is
+$$\expval{N} = 2\sum_{\va{k}} n_F(\beta(E-\mu)) $$
+$$\expval{N} = 2\frac{V}{(2\pi)^3}\int \dd[3]{k} n_F(\beta(E-\mu)) $$
+
+This equation defines $\mu$ (if we know number of particles).
+
+\paragraph{Fermi energy} is $\mu$ at $T=0$, we denote it $\epsilon_F$. Fermi sea are all energy levels for which $\epsilon<\epsilon_F$.
+
+We define Fermi momentum as maximal populated momentum. In this case
+$$\epsilon_F = \frac{\hbar^2 k_F^2}{2m}$$
+and Fermi velocity
+$$v_F = \frac{\hbar k_F}{m}$$
+
+\paragraph{Value of $\epsilon_F$ in 3D}
+$$N = 2 \frac{V}{(2\pi)^3}\int \dd[3]{k} \Theta(\epsilon_F-\epsilon_k)$$
+$$ 2 \frac{V}{(2\pi)^3} =\frac{4\pi}{3} k_F^3$$
+$$n=\frac{N}{V} = \frac{1}{3\pi^2}k_F^3$$
+$$k_F = (3\pi^2 n)^{\frac{1}{3}}$$
+$$\epsilon_F = \frac{\hbar^2(3\pi^2 n)^{\frac{2}{3}}}{2m}$$
+
+
+We also define Fermi temperature
+$$T_F = \frac{\epsilon_F}{k_B}$$
+
+\paragraph{Radius Bohr} $a_b = \frac{\hbar^2}{me^2} = 0.52 \AA$
+
+$$k_F = \qty(\frac{9\pi}{n})^{\frac{1}{3}} \frac{1}{r_s}$$
+$$k_F = \frac{3.63}{\frac{r_s}{a_r}}\circ{A}^{-1}$$
+
+$$\frac{r_s}{a_r} \sim 1$$
+
+\paragraph{Energy density}
+$$\int \dd[3]{k} \leftrightarrow \int g(\epsilon) \dd{\epsilon}$$
+
+$$g(\epsilon) \dd{\epsilon} = 4\pi k^2 \dd{k} \frac{2}{(2\pi)^3}$$
+$$\dv{\epsilon}{k} = \frac{\hbar^2 k}{m}$$
+$$g(\epsilon) = \frac{mk}{\pi^2 \hbar^2} = \frac{\sqrt{2} m^{\frac{3}{2}}}{\pi^2\hbar^3} \epsilon^{\frac{1}{2}}$$
+
+\paragraph{Connection between chemical potential to dencity}
+$$n = \int_0^\infty \dd{\epsilon} g(\epsilon ) n_F(\beta\qty(\epsilon-\mu)) = \frac{1}{(2\pi)^3} \int \dd[3]{k} n_F(\beta\qty(\epsilon_k-\mu))$$
+
+$$n = \int_0^\infty \dd{\epsilon} \frac{\sqrt{2} m^{\frac{3}{2}}}{\pi^2\hbar^3} \frac{\epsilon^{\frac{1}{2}}}{e^{\beta(\epsilon-\mu) } +1}$$
+
+\paragraph{Heat capacity}
+Since 
+$$E_{tot} = V\int_0^\infty g(\epsilon) \epsilon n_F(\beta(\epsilon-\mu))$$
+
+We want to approximate $E$ when $T\ll T_F$. Note that if we count new electrons which got  energies higher than $\mu$:
+$$n = \int_\mu^{\infty} \dd{\epsilon} g(\epsilon) n_F(\beta(\epsilon-\mu))$$
+and those that disappeared from low energies
+
+$$n = \int_0^{\mu} \dd{\epsilon} g(\epsilon) \qty(1-n_F(\beta(\epsilon-\mu)))$$
+
+If $g(\epsilon)$ was constant, those would be equal. That would mean those electrons just moved to higher energies, each acquiring $k_BT$ energy (size of energy window),we get  (assuming $\mu$ would be constant) 
+$$E(T) = E(T=0) + \frac{\gamma}{2} (V g(\epsilon_F) k_BT)k_BT$$
+And thus
+$$C_V = v\gamma  g(\epsilon) k^2 T$$

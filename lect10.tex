@@ -1,0 +1,38 @@
+\paragraph{Quantum numbers of atom}
+We know that electron in atom has three quantum numbers $n$,$m$,$l$. But how electrons fill those energies? there are two thumb rules:
+\begin{enumerate}
+	\item Aufbau principle -- energy shells should be fully filled, from smaller value of $n+l$ to the higher ones.
+	\item Madelung's principle -- for equal $n+l$ we choose shell with smaller $n$.
+\end{enumerate}
+
+\paragraph{Ionization and electron affinity energies}
+The ionization energy is actually can be approximated by summing charge of the nucleus of the atom and all the electrons on the lower shells. Thus the more electrons are on last shell, the higher the energy. Same applies to electron affinity.
+
+\paragraph{Ionic bond}
+We want to bond to atoms:
+$$Na+Cl \to Na^++Cl^- \to NaCl$$
+\paragraph{Electronegativity}
+$$\chi = \frac{1}{2} \qty(E_{aff} + E_{ion}) = \frac{1}{2} \qty(E_N - E_{N+1}) + \qty(E_{N-1} - E_N) = \frac{E_{N-1}-E_{N+1}}{2} \approx \pdv{E}{N} \approx -\mu$$
+
+\paragraph{Covalent bonds}
+In potential well
+$$E=\frac{\hbar^2\pi^2}{2mL^2}$$
+
+If we put two wells close one to another, we get bigger well:
+$$\tilde{E} = \frac{\hbar^2 \pi^2}{2\pi(2L)^2}$$
+
+We also have higher energy level in bigger well.
+\subsection{Molecular orbitals -- tight-binding model}
+\paragraph{Born-Oppenheimer approximation}
+Let's write Hamiltonian of two atom nuclei potential:
+$$H = K+V_1+V_2$$
+For a single electron, $K=\frac{p^2}{2m}$ and
+$V_i = \frac{-e^2}{4\pi\epsilon_0\qty(\va{r}-\va{R}_i)}$
+
+We know the solution of
+$$H_i = K+V_i$$
+denoting eigenfunctions
+$$H_i\ket{i} = \epsilon_o \ket{i}$$
+
+We assume that eigenfunction can be approximated
+$$\ket{\psi} = \alpha \ket{1} + \beta\ket{2}$$
